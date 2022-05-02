@@ -176,29 +176,32 @@ We use opt_check files, which are combinational circuits which can be optimized.
 
 ![day3-1](https://user-images.githubusercontent.com/86126674/166252436-ede213b5-881e-4c2a-9c95-690270bfaeee.PNG)
 
-![day3-2](https://user-images.githubusercontent.com/86126674/166252532-a5cca6f1-bbda-45a8-8f5e-4ab700801684.PNG)
-
-![day3-3](https://user-images.githubusercontent.com/86126674/166252623-317c840d-2166-4987-ae41-f93d65d8900d.PNG)
 
 
 To do constant propagation, we use opt_clean -purge command. We will check this constant propagation with the file opt_check3. The file is synthesized as follows
 
-
-
-
+![day3-4](https://user-images.githubusercontent.com/86126674/166252843-74ffbf62-3b8d-4a88-b142-55da292fc76e.PNG)
 
 The simplified expression for the behavioral code is Y = ABC, which is exactly what is implemented.
 
 Laboratory simulations of sequential circuits. 
 We use the dff_const verilog files to make the simulations. For dff_const1.v and dff_const3.v, flip flops are definitely synthesized as there is a change in the output, even if it is only for a single clock cycle. The waveforms below show these simulations.
 
+![day3-5](https://user-images.githubusercontent.com/86126674/166252927-22bc700c-60f0-4602-b240-64f78c795681.PNG)
 
 
+![day3-6](https://user-images.githubusercontent.com/86126674/166253025-372ce998-eac9-45a7-9e08-e7e36a6ac8c0.PNG)
 
 However, df_const2, is synthesized as a single line with a high output.
 
+![day3-7](https://user-images.githubusercontent.com/86126674/166253213-a0cfd2d8-ac45-4a68-83c2-dac9aa361edb.PNG)
+
+
 Unused output optimizations.
 Sometimes, there will be instances when one or more outputs will not be used in a circuit. In such cases, we do not need to synthesize the circuit pertaining to the output. Consider an 8 bit counter where only the first bit is used. Such a circuit will be synthesized with a single flip flop.
+
+
+![day3-8](https://user-images.githubusercontent.com/86126674/166253285-8e9aab9b-9964-4cbb-803c-9e680cdfe953.PNG)
 
 
 Compare this with 3 bit counter circuit where all four outputs are used. All three flip flops are used in this case.
@@ -295,7 +298,32 @@ Another caveat is the case of an overlapping case. When two cases in a switch ca
 
 ### If construct labs
 
+We see the effect of an incomplete if statement with two modules namely incomp_if.v and incomp_if2.v. These modules infer a latch during synthesis. The yosys simulation and synthesis for both the incomplete_if blocks are given below.
+
+![day5-1](https://user-images.githubusercontent.com/86126674/166254548-1caff0ff-4630-489e-8c5f-eddfc4ff8df7.PNG)
+
+![day5-2](https://user-images.githubusercontent.com/86126674/166254561-e093e35b-a761-419f-8bcd-9718a0fd1edc.PNG)
+
+![day5-3](https://user-images.githubusercontent.com/86126674/166254594-2ddbd708-b0c2-4b5c-a856-f2102252331d.PNG)
+
+![day5-4](https://user-images.githubusercontent.com/86126674/166254616-81a6236d-5e4a-4036-9970-b90c236f99ac.PNG)
+
+![day5-5](https://user-images.githubusercontent.com/86126674/166254646-62600fef-e7ce-4747-ba87-45178cc4d79a.PNG)
+
 ### Case construct labs
+
+We see the effect of an improper case statement. The output does not follow any of the inputs completely, which can be seen from the simulation.
+
+![day5-6](https://user-images.githubusercontent.com/86126674/166262501-73c441a8-deb9-4cbf-8802-c9e54b701eeb.PNG)
+
+A latch is also infered and this can be seen from the yosys synthesis.
+
+![day5-7](https://user-images.githubusercontent.com/86126674/166263695-1cac47b3-a94e-4d0c-bd4b-4c2028821a94.PNG)
+
+This is compared with the simulation of a good_case  where all cases are covered.
+
+![day5-8](https://user-images.githubusercontent.com/86126674/166263937-a71a801a-18cb-4401-82dd-f8c336dd01be.PNG)
+
 
 ### Loop and generate statements
 There are two main looping constructs in verilog. These are the for loop and the generate for. The for loop is used for evaluating expressions while the generate loop is used to obtain multiple instances of a particular module. Examples of the two are given below
@@ -305,6 +333,16 @@ There are two main looping constructs in verilog. These are the for loop and the
 It should be noted that the generate block is always used outside an always block.
 
 ### Lab instances for for and generate.
+
+The for and generate statements are extremely useful when you have to synthesize larger blocks of hardware. The usage of for is illustrated with the production of a MUX and a DEMUX. The simulation for the two has been given below.
+
+![day5-11](https://user-images.githubusercontent.com/86126674/166264739-488d8a13-4d23-498a-a57a-6ce6b5ecf7ba.PNG)
+
+![day5-12](https://user-images.githubusercontent.com/86126674/166264778-e716631e-4f88-453c-950c-257ae0c1edfb.PNG)
+
+
+
+
 
 
 
