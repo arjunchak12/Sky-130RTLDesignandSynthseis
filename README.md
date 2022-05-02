@@ -175,4 +175,19 @@ Compare this with 3 bit counter circuit where all four outputs are used. All thr
 
 
 ## Day 4
+Day 4 mainly focused on gate level simulation or GLS. In this concept, the synthesized netlist is fed inputs from the testbench and the output changes are monitored. The netlist can seamlessly fit with the testbench. 
+Reasons to use GLS
+- It is used to verify the logical correctness of the circuit after synthesis.
+- It ensures timing constraints are met.
+- Gate level verilog models are required to tell iverilog what each of the cells in the syntheis means. These models can be both functional and timing-aware. 
+
+### Synthesis simulation mismatch.
+This is the condition which occurs due to improper coding styles. These can be detrimental as our synthesis will not match what we did during simulation.
+- Missing Sensitivity list: The always block is evaluated whenever one of it's parameter changes. If one or more inputs in the always block which are bound to change is not specified in the always block, then there are errors which can happen in the simulation and there will be a mismatch when synthesizing
+(Example of a MUX)
+
+### Blocking and non blocking assignments. 
+The two most important statement varieties in verilog are blocking an dnon bloacking statements.
+- In blocking statements, the order of writing the statements is really important. Differing orders will lead to different simulations and synthesis. The statements in a blocking statement are executed one after the other and is usually used only in combinational circuits.
+- In non-blocking statements, the execution takes place simultaneously within an always block. The order of statements do not matter and are predominantly used in sequential circuits. 
 
