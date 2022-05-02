@@ -198,30 +198,49 @@ Here, statement 1 is evaluated first, followed by statement 2. The old value of 
 
 ### Mismatch simulations.
 We start off by using the file ternary_operator_mux.v. This is a very simple way of coding a mux.
+
 ![1](https://user-images.githubusercontent.com/86126674/166213559-08d2cb01-2b5a-4b9c-b6b9-51c2611bcb95.PNG)
 
 We then synthesize this MUX using yosys. 
+![2](https://user-images.githubusercontent.com/86126674/166213887-6f0ff01e-1244-4cf2-8b3c-18aa0461fc74.PNG)
+
 (day4_2).
 We now use the synthesized netlist with the testbench. To do this, we will need a few extram files. These are
 - Primitives
 - The netlist file.
 - The actual verilog file.
 The synthesized GLS output looks like this.
+![3](https://user-images.githubusercontent.com/86126674/166213921-f798c3b4-c1e1-4d7a-9fec-70ca57626793.PNG)
+
 (day4_3).
 
 As we can see, this is the example of a good_mux. Now, we take the example of a badly written mux, called the bad_mux.v. This mux is a classic case of a missing sensitivty list, which is given in an example above. When we simulate this, we get a simulation in which the output does not follow input i0 or i1, and holds on to the value present in i0 or i1 when select is low or high respectively. It basically acts as a latch.
 
+![4](https://user-images.githubusercontent.com/86126674/166213995-2fb81446-e56e-49ca-91b5-f21d08683d0c.PNG)
+
 (day4_4).
 
 But, when we synthesize it perform GLS, it acts like a correct MUX. This is a classic case of synthesis mismatch.
+
+![5](https://user-images.githubusercontent.com/86126674/166214029-28c5bbf4-b011-4737-9fe5-02f31b4832d6.PNG)
+
 (day4_5)
 
 ### Blocking Caveats
 The same example discussed for blocking and non-blocking assignments is used from above. 
+
+![8](https://user-images.githubusercontent.com/86126674/166214074-106564db-359f-4955-97dc-955c7e624201.PNG)
+
 (day4_8)
 When simulated, the circuit looks like a flip flop. Since the prvious value of D is used for the present value of y.
+
+![6](https://user-images.githubusercontent.com/86126674/166214132-a5a69464-addf-4695-b9f9-1fd64664c34f.PNG)
+
 (day4_6)
 But when synthesized and GLS waveform is observed, no latches are synthesized and proper waveforms are observed.
+
+![7](https://user-images.githubusercontent.com/86126674/166214185-62108191-e272-40dc-b982-16e3ec81a5a0.PNG)
+
 (day4_7).
 Hence, blocking statements have to be used with care. 
 
