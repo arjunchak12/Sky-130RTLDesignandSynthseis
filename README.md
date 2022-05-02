@@ -10,7 +10,7 @@
 4. [Day 4: GLS, Blocking vs Non blocking and Synthesis-simulation mismatch](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-4)
 5. [Day 5: If, case, for loop and generate](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-5)
 
-## Day 1 Day 1: Introduction to Verilog RTL design and synthesis:
+## Day 1: Introduction to Verilog RTL design and synthesis:
 Day 1 started off with an introduction to iverilog, specifically the Verilog testbench. The testbench is a separate module that is used to feed inputs while monitoring output changes through time.
 
 ![WhatsApp Image 2022-05-02 at 9 40 08 PM](https://user-images.githubusercontent.com/86126674/166268400-3c9fc8c5-0689-4547-9713-1ca97d886a90.jpeg)
