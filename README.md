@@ -223,3 +223,31 @@ When simulated, the circuit looks like a flip flop. Since the prvious value of D
 But when synthesized and GLS waveform is observed, no latches are synthesized and proper waveforms are observed.
 (day4_7).
 Hence, blocking statements have to be used with care. 
+
+## Day 5
+During the last day of the workshop, we dealt with if and case statements as well as for and generate statements. Several bad coding styles of these constructs and their repurcussions in synthesis were also studied
+
+### If constructs
+The if else-if else set are priority statements. They yield an array of muxes and their syntax will be as follows.
+(Syntax picture)
+There is an inherent danger when it comes to if statements called the infered latch. When if statements are incomplete, the cases which are not dealt with produce a latch to hold on to the previous values. However, such infered latches are not always bad, and are an integral part of counter design
+(counter picture)
+
+### Case Cosnstructs.
+The case statement does not hold any priority. Infact, it synthesizes a single mux when coded properly. However, when not all cases are dealt with, we again get an infered latch
+(Case caveat 1)
+To deal with this problem, we use a default statement to deal with all other cases. There is another case caveat called partial assignements. In such assignments, the default case will not be able to stop the generation of an infered latch. This arises when all the variables are not dealt with in all cases.
+(case caveat2)
+Another caveat is the case of an overlapping case. When two cases in a switch case are essentially the same, but evaluate different outputs, the simulator and the synthesizer get confused. This is another caveat that has to be taken care of.
+
+### If construct labs
+
+### Case construct labs
+
+### Loop and generate statements
+There are two main looping constructs in verilog. These are the for loop and the generate for. The for loop is used for evaluating expressions while the generate loop is used to obtain multiple instances of a particular module. Examples of the two are given below
+(for loop)
+(generate loop)
+
+
+
