@@ -16,9 +16,15 @@ Then the lab environment and the required files were setup by cloning the github
 
 We then focused on GTKWave, the simulator which is used for the duration of this course. The basic commands used to simulate a .vcd file (VCD stands for value change dump) are given as follows
 
+![rtlworkshopday13](https://user-images.githubusercontent.com/86126674/166251013-83ff1635-a9dc-4e93-9d83-3cf1178d42cd.PNG)
+
+
 (day13)
 
+
 A simulated waveform looks as follows
+
+![rtlworkshopday14](https://user-images.githubusercontent.com/86126674/166251114-8de897eb-7b71-4c45-9286-f9e8ebcd0157.PNG)
 
 (day14)
 
@@ -29,8 +35,14 @@ The synthesizing workflow looks as follows
 (synthesizer workflow diagram)
 
 The RTL code looks as follows, written in iverilog.
+
+![rtlworkshopday15](https://user-images.githubusercontent.com/86126674/166251195-02f2b726-90c9-47a6-b9b4-c7f3baff53c1.PNG)
+
 (day15)
 The synthesized module looks as follows:
+
+![rtlworkshopday16](https://user-images.githubusercontent.com/86126674/166251233-6c627b21-eca4-463d-b9c9-69f869735a46.PNG)
+
 (day16)
 
 Hence, the final workflow for the entire design will look as follows
@@ -59,6 +71,9 @@ Faster cells -> more current -> Low delay -> More area and power dissipation.
 Slower cells ->less current -> High delay -> Lesser area and power consumption.
 
 The netlist for the synthesized mux is given below.
+
+![rtlworkshopday18](https://user-images.githubusercontent.com/86126674/166251310-4b8fba2d-d6ff-45db-9c47-eea28f1034af.PNG)
+
 (day18)
 
 
@@ -80,17 +95,25 @@ Synthesizing can take place in two ways - Hierarchical synthesis and flat synthe
 Features of Hierarchical synthesis
 - The hierarchy is preserved. This property is best illustrated with a module with submodules
 - Instead of seeing the gates, we will see a modular level synthesis result.
+
+![day2-3rd](https://user-images.githubusercontent.com/86126674/166251525-2b680a3a-e898-43ad-bd19-c77085c8ebe3.PNG)
+
 (Day23)
 
 Features of Flat synthesis
 - The hierarchy isn’t preserved
 - We see individual gates as the individual modules are split apart, thereby removing the hierarchy.
 This is implemented with the flatten command.
+
+![day2-5](https://user-images.githubusercontent.com/86126674/166251560-3be944df-8673-47f3-83fd-41a6ad9c3286.PNG)
+
 (day25)
 
 We can also synthesize a single module from a vast amount of models in a single design. This can help in the following ways:
 - We can synthesize a module once and stitch several of them together.
 - We can synthesize several smaller modules from a very large module which can be difficult for the synthesizer to synthesize.
+
+![day2_6](https://user-images.githubusercontent.com/86126674/166251597-14762f37-0150-4a67-9406-59e492e5ffc7.PNG)
 
 (day26)
 
@@ -101,14 +124,22 @@ There are two methods of coding flops
 The Asynchronus block
 - In an asynchronous block, both reset/set and clock are independent of each other. The always block is activated no matter which changes.
 - The output follows the asynchronous set. 
+
+![day2_8](https://user-images.githubusercontent.com/86126674/166251884-fea5d911-9d70-4efd-870d-be78e4411fc3.PNG)
+
 (Simulation)
 
 The synchronous block
 - In a synchronous block, reset/set waits for the positive edge of the clock. 
 (Diagram)
+
+![day2-9](https://user-images.githubusercontent.com/86126674/166251931-0c23fdfa-454b-4edf-a8bc-4c1763315705.PNG)
+
 (Simulation)
 
-For synthesizing flip-flop, we use difflibmap.
+For synthesizing flip-flop, we use difflibmap. The final synthesized flip flop looks as follows
+
+![day2 10](https://user-images.githubusercontent.com/86126674/166252071-ab4f47da-18bb-4d47-8245-c0eb18ce97f6.PNG)
 
 Some interesting synthesis.
 (should take)
@@ -143,16 +174,16 @@ When set = 0, Q goes to 0 only after a clock cycle. When set is high, Q follows 
 Laboratory simulations of combinational design optimizations.
 We use opt_check files, which are combinational circuits which can be optimized. 
 
+![day3-1](https://user-images.githubusercontent.com/86126674/166252436-ede213b5-881e-4c2a-9c95-690270bfaeee.PNG)
 
+![day3-2](https://user-images.githubusercontent.com/86126674/166252532-a5cca6f1-bbda-45a8-8f5e-4ab700801684.PNG)
 
-
-
-
- 
-
+![day3-3](https://user-images.githubusercontent.com/86126674/166252623-317c840d-2166-4987-ae41-f93d65d8900d.PNG)
 
 
 To do constant propagation, we use opt_clean -purge command. We will check this constant propagation with the file opt_check3. The file is synthesized as follows
+
+
 
 
 
