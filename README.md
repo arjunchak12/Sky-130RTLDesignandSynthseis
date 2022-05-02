@@ -172,9 +172,16 @@ Boolean optimization:
 ### Sequential circuit optimization
 - Basic optimization techniques
 Sequential constant propogation
+
+![WhatsApp Image 2022-05-02 at 10 29 29 PM](https://user-images.githubusercontent.com/86126674/166291629-235fb762-e7a4-47c1-9260-cd081de9aae5.jpeg)
+
+
 (Draw diagram and show how Y = 1)
 
 Special case of where a tied D cannot be taken to have a constant propagation.
+
+![WhatsApp Image 2022-05-02 at 10 29 02 PM](https://user-images.githubusercontent.com/86126674/166291902-aeddcd77-07b2-4b39-bc42-22300f7ee650.jpeg)
+
 (Draw diagram, clock and explain).
 
 When set = 0, Q goes to 0 only after a clock cycle. When set is high, Q follows set. So Q is not constant and it changes for a clock cycle. Therefore, we need a flip flop.
@@ -183,7 +190,7 @@ When set = 0, Q goes to 0 only after a clock cycle. When set is high, Q follows 
 - State optimization: State optimization involves the optimization of an unused state. It also has a condensed state matrix.
 - Cloning: To reduce the effective distance between two flops to reduce propagation delay, thereby reducing setup time.
 - Retiming: Changing operating frequency by attempting to reduce the maximum delay component.
-(Enter diagram)
+
 
 
 ### Laboratory simulations of combinational design optimizations.
@@ -240,8 +247,8 @@ Reasons to use GLS
 
 ### Synthesis simulation mismatch.
 This is the condition which occurs due to improper coding styles. These can be detrimental as our synthesis will not match what we did during simulation.
-- Missing Sensitivity list: The always block is evaluated whenever one of it's parameter changes. If one or more inputs in the always block which are bound to change is not specified in the always block, then there are errors which can happen in the simulation and there will be a mismatch when synthesizing
-(Example of a MUX)
+- Missing Sensitivity list: The always block is evaluated whenever one of it's parameter changes. If one or more inputs in the always block which are bound to change is not specified in the always block, then there are errors which can happen in the simulation and there will be a mismatch when synthesizing.
+
 
 ### Blocking and non blocking assignments. 
 The two most important statement varieties in verilog are blocking an dnon bloacking statements.
@@ -249,7 +256,9 @@ The two most important statement varieties in verilog are blocking an dnon bloac
 - In non-blocking statements, the execution takes place simultaneously within an always block. The order of statements do not matter and are predominantly used in sequential circuits. 
 
 ### Mismatch example in blocking assignments
-(The blocking image).
+
+![WhatsApp Image 2022-05-02 at 10 35 20 PM](https://user-images.githubusercontent.com/86126674/166292321-7e96317a-abe8-4001-918c-3cdcc99dee9f.jpeg)
+
 
 Here, statement 1 is evaluated first, followed by statement 2. The old value of q0 is used for the present value of y instead of the present value of q0. This is undesirable in any combinational circuit and causes simulation synthesis mismatch.
 
@@ -308,8 +317,16 @@ During the last day of the workshop, we dealt with if and case statements as wel
 
 ### If constructs
 The if else-if else set are priority statements. They yield an array of muxes and their syntax will be as follows.
+
+![WhatsApp Image 2022-05-02 at 10 37 41 PM](https://user-images.githubusercontent.com/86126674/166292650-c2083af6-08b7-4789-be98-0efe2dd50b70.jpeg)
+
+
 (Syntax picture)
-There is an inherent danger when it comes to if statements called the infered latch. When if statements are incomplete, the cases which are not dealt with produce a latch to hold on to the previous values. However, such infered latches are not always bad, and are an integral part of counter design
+There is an inherent danger when it comes to if statements called the infered latch. When if statements are incomplete, the cases which are not dealt with produce a latch to hold on to the previous values. However, such infered latches are not always bad, and are an integral part of counter design.
+
+![WhatsApp Image 2022-05-02 at 10 39 35 PM](https://user-images.githubusercontent.com/86126674/166292909-057c0f3a-7901-4417-9728-9fe29713b2eb.jpeg)
+
+
 (counter picture)
 
 ### Case Cosnstructs.
@@ -351,7 +368,14 @@ This is compared with the simulation of a good_case  where all cases are covered
 ### Loop and generate statements
 There are two main looping constructs in verilog. These are the for loop and the generate for. The for loop is used for evaluating expressions while the generate loop is used to obtain multiple instances of a particular module. Examples of the two are given below
 (for loop)
+
+![WhatsApp Image 2022-05-02 at 10 42 43 PM](https://user-images.githubusercontent.com/86126674/166293381-7870e899-e3c9-4329-aee4-fec719775ec3.jpeg)
+
+
 (generate loop)
+
+![WhatsApp Image 2022-05-02 at 10 43 15 PM](https://user-images.githubusercontent.com/86126674/166293443-f9d0334b-5817-4f80-b475-61c2c9fa5082.jpeg)
+
 
 It should be noted that the generate block is always used outside an always block.
 
