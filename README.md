@@ -2,11 +2,15 @@
 ## Day 1:
 Day 1 started off with an introduction to iverilog, specifically the Verilog testbench. The testbench is a separate module that is used to feed inputs while monitoring output changes through time.
 
+![WhatsApp Image 2022-05-02 at 9 40 08 PM](https://user-images.githubusercontent.com/86126674/166268400-3c9fc8c5-0689-4547-9713-1ca97d886a90.jpeg)
+
 (Stimulus Generator diagram)
 
 It is important to know that the testbench doe not have any primary inputs or outputs. We then looked at the simulator, which is GTKWave. An important feature of the simulator is that it checks for output changes whenever there is a change in input.
 
 We then looked at the entire verilog design workflow
+
+![WhatsApp Image 2022-05-02 at 9 40 21 PM](https://user-images.githubusercontent.com/86126674/166268427-e2b7fc5c-4a62-445a-bfab-844eebc34132.jpeg)
 
 (Workflow diagram)
 
@@ -53,7 +57,9 @@ Hence, the final workflow for the entire design will look as follows
 - It includes a collection of basic as well as complex gates.
 - There are different flavors for each of these modules Eg: 2,3 and 4 input, slower gates, medium gates and faster gates, etc.
 
-The need for gates of different flavours is discussed from a timing perspective. Take the example of a two flip flop combinational circuit, like the one given below. 
+The need for gates of different flavours is discussed from a timing perspective. Take the example of a two flip flop combinational circuit, like the one given below.
+
+![WhatsApp Image 2022-05-02 at 9 41 10 PM](https://user-images.githubusercontent.com/86126674/166268564-391f5a06-0ebe-4c11-be4d-a2ecbeacf6e3.jpeg)
 
 (FF image).
 
@@ -86,7 +92,9 @@ Day 2 starts off by exploring the .lib file. The different components of the fil
         
 The parameters P,V and T are important features of any process and PDK. They influence the behaviour of the circuit. The various parameters can be viewed in the .lib file. 
 
+
 (The .lib file)
+![day1pic](https://user-images.githubusercontent.com/86126674/166279632-ee87bd07-1bc8-4b1a-8659-d9417ea45f57.PNG)
 
 Different flavours of the AND gate (AND_2, AND_4 and AND_4) were discussed along with their variations in area, power and delays.
 
@@ -141,8 +149,15 @@ For synthesizing flip-flop, we use difflibmap. The final synthesized flip flop l
 
 ![day2 10](https://user-images.githubusercontent.com/86126674/166252071-ab4f47da-18bb-4d47-8245-c0eb18ce97f6.PNG)
 
-Some interesting synthesis.
-(should take)
+![WhatsApp Image 2022-05-02 at 10 05 09 PM](https://user-images.githubusercontent.com/86126674/166282186-5d2b0e00-0eba-42de-890e-072ad105bb6d.jpeg)
+
+### Some interesting synthesis.
+We use a x2 multiplier and and x8 multiplier and see how we do not exactly need a multiplier circuit to synthesize these. We can look at the truth table of a x2 multiplier and see that the output is the same as that of an input but with an appended zero.
+
+![WhatsApp Image 2022-05-02 at 10 13 32 PM](https://user-images.githubusercontent.com/86126674/166290626-352c7e18-a119-4c75-ac99-2b83d9c5bcf6.jpeg)
+
+
+![someshittt](https://user-images.githubusercontent.com/86126674/166290657-3c6f8a7d-b250-41d9-b8b4-2d5e1767d0b1.PNG)
 
 
 ## Day 3
