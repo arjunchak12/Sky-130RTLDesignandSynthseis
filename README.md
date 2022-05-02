@@ -198,7 +198,8 @@ Here, statement 1 is evaluated first, followed by statement 2. The old value of 
 
 ### Mismatch simulations.
 We start off by using the file ternary_operator_mux.v. This is a very simple way of coding a mux.
-(day4_1).
+![1](https://user-images.githubusercontent.com/86126674/166213559-08d2cb01-2b5a-4b9c-b6b9-51c2611bcb95.PNG)
+
 We then synthesize this MUX using yosys. 
 (day4_2).
 We now use the synthesized netlist with the testbench. To do this, we will need a few extram files. These are
