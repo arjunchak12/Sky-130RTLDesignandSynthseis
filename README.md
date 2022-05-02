@@ -249,5 +249,9 @@ There are two main looping constructs in verilog. These are the for loop and the
 (for loop)
 (generate loop)
 
+It should be noted that the generate block is always used outside an always block.
+
+### Lab instances for for and generate.
+
 
 
