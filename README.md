@@ -22,7 +22,7 @@ A simulated waveform looks as follows
 
 (day14)
 
-The Synthesizer:
+### The Synthesizer:
 Another important tool pertaining to the entire workflow is the synthesizer. Whatever is coded in Verilog is the RTL design. However, this has to be synthesized or converted into physical blocks. This conversion of an RTL into Netlist is done through synthesis and this is the job of a synthesizer. 
 
 The synthesizing workflow looks as follows
@@ -36,7 +36,7 @@ The synthesized module looks as follows:
 Hence, the final workflow for the entire design will look as follows
 (our own image)
 
-The .lib files
+### The .lib files
 - The .lib files are a collection of logical modules based on the sky130 PDK
 - It includes a collection of basic as well as complex gates.
 - There are different flavors for each of these modules Eg: 2,3 and 4 input, slower gates, medium gates and faster gates, etc.
@@ -75,7 +75,7 @@ The parameters P,V and T are important features of any process and PDK. They inf
 
 Different flavours of the AND gate (AND_2, AND_4 and AND_4) were discussed along with their variations in area, power and delays.
 
-Hierarchical vs Flat synthesis
+### Hierarchical vs Flat synthesis
 Synthesizing can take place in two ways - Hierarchical synthesis and flat synthesis. 
 Features of Hierarchical synthesis
 - The hierarchy is preserved. This property is best illustrated with a module with submodules
@@ -94,7 +94,7 @@ We can also synthesize a single module from a vast amount of models in a single 
 
 (day26)
 
-Flop coding styles
+### Flop coding styles
 When using just a standard combinational circuit, there will be a lot of propagation delay and there will be glitching. When using a continuous combinational circuit, we will be having a lot of glitching and the circuit may never settle down. For this, we use flops between stages. These can act as a shield against glitching and outputs from one stage propagate to another in a settled down stage.
 
 There are two methods of coding flops
@@ -191,3 +191,35 @@ The two most important statement varieties in verilog are blocking an dnon bloac
 - In blocking statements, the order of writing the statements is really important. Differing orders will lead to different simulations and synthesis. The statements in a blocking statement are executed one after the other and is usually used only in combinational circuits.
 - In non-blocking statements, the execution takes place simultaneously within an always block. The order of statements do not matter and are predominantly used in sequential circuits. 
 
+### Mismatch example in blocking assignments
+(The blocking image).
+
+Here, statement 1 is evaluated first, followed by statement 2. The old value of q0 is used for the present value of y instead of the present value of q0. This is undesirable in any combinational circuit and causes simulation synthesis mismatch.
+
+### Mismatch simulations.
+We start off by using the file ternary_operator_mux.v. This is a very simple way of coding a mux.
+(day4_1).
+We then synthesize this MUX using yosys. 
+(day4_2).
+We now use the synthesized netlist with the testbench. To do this, we will need a few extram files. These are
+- Primitives
+- The netlist file.
+- The actual verilog file.
+The synthesized GLS output looks like this.
+(day4_3).
+
+As we can see, this is the example of a good_mux. Now, we take the example of a badly written mux, called the bad_mux.v. This mux is a classic case of a missing sensitivty list, which is given in an example above. When we simulate this, we get a simulation in which the output does not follow input i0 or i1, and holds on to the value present in i0 or i1 when select is low or high respectively. It basically acts as a latch.
+
+(day4_4).
+
+But, when we synthesize it perform GLS, it acts like a correct MUX. This is a classic case of synthesis mismatch.
+(day4_5)
+
+### Blocking Caveats
+The same example discussed for blocking and non-blocking assignments is used from above. 
+(day4_8)
+When simulated, the circuit looks like a flip flop. Since the prvious value of D is used for the present value of y.
+(day4_6)
+But when synthesized and GLS waveform is observed, no latches are synthesized and proper waveforms are observed.
+(day4_7).
+Hence, blocking statements have to be used with care. 
