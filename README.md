@@ -148,13 +148,13 @@ Some interesting synthesis.
 ## Day 3
 The main focus of day 3 was optimizations. It is the process of simplifying a circuit based on a certain set of conditions. There are optimizations for both combinational and sequential circuits.
 
-Combinational Circuit optimization methods
+### Combinational Circuit optimization methods
 Constant Propogation: The output is dependent on only one variable.
 (Insert image)
 Boolean optimization: 
 (Write expression and simplify)
 
-Sequential circuit optimization
+### Sequential circuit optimization
 - Basic optimization techniques
 Sequential constant propogation
 (Draw diagram and show how Y = 1)
@@ -171,7 +171,7 @@ When set = 0, Q goes to 0 only after a clock cycle. When set is high, Q follows 
 (Enter diagram)
 
 
-Laboratory simulations of combinational design optimizations.
+### Laboratory simulations of combinational design optimizations.
 We use opt_check files, which are combinational circuits which can be optimized. 
 
 ![day3-1](https://user-images.githubusercontent.com/86126674/166252436-ede213b5-881e-4c2a-9c95-690270bfaeee.PNG)
@@ -180,31 +180,39 @@ We use opt_check files, which are combinational circuits which can be optimized.
 
 To do constant propagation, we use opt_clean -purge command. We will check this constant propagation with the file opt_check3. The file is synthesized as follows
 
-![day3-4](https://user-images.githubusercontent.com/86126674/166252843-74ffbf62-3b8d-4a88-b142-55da292fc76e.PNG)
+![day3-3](https://user-images.githubusercontent.com/86126674/166266513-7ee977f6-4b8f-413e-8057-6a019374f604.PNG)
+
+
 
 The simplified expression for the behavioral code is Y = ABC, which is exactly what is implemented.
 
-Laboratory simulations of sequential circuits. 
+### Laboratory simulations of sequential circuits. 
 We use the dff_const verilog files to make the simulations. For dff_const1.v and dff_const3.v, flip flops are definitely synthesized as there is a change in the output, even if it is only for a single clock cycle. The waveforms below show these simulations.
 
-![day3-5](https://user-images.githubusercontent.com/86126674/166252927-22bc700c-60f0-4602-b240-64f78c795681.PNG)
+![day3-4](https://user-images.githubusercontent.com/86126674/166266588-3b53363b-e335-494b-83ce-9fa921df2930.PNG)
+
+![day3-6](https://user-images.githubusercontent.com/86126674/166266771-68eb4d7e-1935-4d1f-913c-765c6c0c2c3c.PNG)
 
 
-![day3-6](https://user-images.githubusercontent.com/86126674/166253025-372ce998-eac9-45a7-9e08-e7e36a6ac8c0.PNG)
 
 However, df_const2, is synthesized as a single line with a high output.
+
+![day3-5](https://user-images.githubusercontent.com/86126674/166266743-eb43cadb-72cd-4ca0-be09-17358b340865.PNG)
+
+
+
+
+
+### Unused output optimizations.
+Sometimes, there will be instances when one or more outputs will not be used in a circuit. In such cases, we do not need to synthesize the circuit pertaining to the output. Consider an 8 bit counter where only the first bit is used. Such a circuit will be synthesized with a single flip flop.
 
 ![day3-7](https://user-images.githubusercontent.com/86126674/166253213-a0cfd2d8-ac45-4a68-83c2-dac9aa361edb.PNG)
 
 
-Unused output optimizations.
-Sometimes, there will be instances when one or more outputs will not be used in a circuit. In such cases, we do not need to synthesize the circuit pertaining to the output. Consider an 8 bit counter where only the first bit is used. Such a circuit will be synthesized with a single flip flop.
+Compare this with 3 bit counter circuit where all four outputs are used. All three flip flops are used in this case.
 
 
 ![day3-8](https://user-images.githubusercontent.com/86126674/166253285-8e9aab9b-9964-4cbb-803c-9e680cdfe953.PNG)
-
-
-Compare this with 3 bit counter circuit where all four outputs are used. All three flip flops are used in this case.
 
 
 
@@ -340,8 +348,18 @@ The for and generate statements are extremely useful when you have to synthesize
 
 ![day5-12](https://user-images.githubusercontent.com/86126674/166264778-e716631e-4f88-453c-950c-257ae0c1edfb.PNG)
 
+The use of generate statement is shown with the generation of a ripple carry adder. It's simulation is shown below.
 
 
+![day5-13](https://user-images.githubusercontent.com/86126674/166265161-0968996c-dfb2-48d1-8b9f-4be4cbabaa7b.PNG)
+
+It's synthesis is shown below,
+
+
+![day5-14](https://user-images.githubusercontent.com/86126674/166265226-de26ab0e-d490-4f7d-a5cd-048edb06750c.PNG)
+
+## Conclusion
+The workshop was extremely informative and rich in practical experience. It helped me gain first hand experience not only in from a subjective point of view, but also in terms of dcumentation, working with deadlines etc. My documentations have a lot of room for improvement and I will strive to do so in the future workshops. Huge thanks to the VSD team for putting together such a wonderful cousre.
 
 
 
