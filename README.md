@@ -2,7 +2,14 @@
 
 
 ![workshop_banner](https://user-images.githubusercontent.com/86126674/166294305-9ffb2a8e-cb59-430b-a108-7a0d075d5509.png)
-1. [Day 1] (# Day 1:)
+
+## Table of contents
+1. [Day 1] (https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis/edit/main/README.md#day-1)
+2. [Day 2] (https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis/edit/main/README.md#day-2)
+3. [Day 3] (https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis/edit/main/README.md#day-3)
+4. [Day 4] (https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis/edit/main/README.md#day-4)
+5. [Day 5] (https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis/edit/main/README.md#day-2)
+
 ## Day 1:
 Day 1 started off with an introduction to iverilog, specifically the Verilog testbench. The testbench is a separate module that is used to feed inputs while monitoring output changes through time.
 
