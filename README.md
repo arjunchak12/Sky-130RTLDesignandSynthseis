@@ -202,6 +202,7 @@ We start off by using the file ternary_operator_mux.v. This is a very simple way
 ![1](https://user-images.githubusercontent.com/86126674/166213559-08d2cb01-2b5a-4b9c-b6b9-51c2611bcb95.PNG)
 
 We then synthesize this MUX using yosys. 
+
 ![2](https://user-images.githubusercontent.com/86126674/166213887-6f0ff01e-1244-4cf2-8b3c-18aa0461fc74.PNG)
 
 (day4_2).
@@ -210,6 +211,7 @@ We now use the synthesized netlist with the testbench. To do this, we will need 
 - The netlist file.
 - The actual verilog file.
 The synthesized GLS output looks like this.
+
 ![3](https://user-images.githubusercontent.com/86126674/166213921-f798c3b4-c1e1-4d7a-9fec-70ca57626793.PNG)
 
 (day4_3).
