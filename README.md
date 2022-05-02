@@ -4,13 +4,13 @@
 ![workshop_banner](https://user-images.githubusercontent.com/86126674/166294305-9ffb2a8e-cb59-430b-a108-7a0d075d5509.png)
 
 ## Table of contents
-1. [Day 1](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-1)
-2. [Day 2](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-2)
-3. [Day 3](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-3)
-4. [Day 4](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-4)
-5. [Day 5](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-5)
+1. [Day 1: Introduction to Verilog RTL design and synthesis](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-1)
+2. [Day 2: Timing Libs, heirarchical vs flat synthesis and efficient flop coding styles](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-2)
+3. [Day 3: Combinational and Sequential Optimizations](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-3)
+4. [Day 4: GLS, Blocking vs Non blocking and Synthesis-simulation mismatch](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-4)
+5. [Day 5: If, case, for loop and generate](https://github.com/arjunchak12/Sky-130RTLDesignandSynthseis#day-5)
 
-## Day 1:
+## Day 1 Day 1: Introduction to Verilog RTL design and synthesis:
 Day 1 started off with an introduction to iverilog, specifically the Verilog testbench. The testbench is a separate module that is used to feed inputs while monitoring output changes through time.
 
 ![WhatsApp Image 2022-05-02 at 9 40 08 PM](https://user-images.githubusercontent.com/86126674/166268400-3c9fc8c5-0689-4547-9713-1ca97d886a90.jpeg)
@@ -91,7 +91,7 @@ The netlist for the synthesized mux is given below.
 
 
 
-## Day 2:
+## Day 2: Timing Libs, heirarchical vs flat synthesis and efficient flop coding styles
 Day 2 starts off by exploring the .lib file. The different components of the file name are explained as follows:
 - tt- typical process
 - 025C - process temperature
@@ -166,7 +166,7 @@ We use a x2 multiplier and and x8 multiplier and see how we do not exactly need 
 ![someshittt](https://user-images.githubusercontent.com/86126674/166290657-3c6f8a7d-b250-41d9-b8b4-2d5e1767d0b1.PNG)
 
 
-## Day 3
+## Day 3: Combinational and Sequential Optimizations
 The main focus of day 3 was optimizations. It is the process of simplifying a circuit based on a certain set of conditions. There are optimizations for both combinational and sequential circuits.
 
 ### Combinational Circuit optimization methods
@@ -243,7 +243,7 @@ Compare this with 3 bit counter circuit where all four outputs are used. All thr
 
 
 
-## Day 4
+## Day 4: GLS, Blocking vs Non blocking and Synthesis-simulation mismatch
 Day 4 mainly focused on gate level simulation or GLS. In this concept, the synthesized netlist is fed inputs from the testbench and the output changes are monitored. The netlist can seamlessly fit with the testbench. 
 Reasons to use GLS
 - It is used to verify the logical correctness of the circuit after synthesis.
@@ -313,7 +313,7 @@ But when synthesized and GLS waveform is observed, no latches are synthesized an
 
 Hence, blocking statements have to be used with care. 
 
-## Day 5
+## Day 5: If, case, for loop and generate
 During the last day of the workshop, we dealt with if and case statements as well as for and generate statements. Several bad coding styles of these constructs and their repurcussions in synthesis were also studied
 
 ### If constructs
